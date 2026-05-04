@@ -1,38 +1,180 @@
-.App {
-  text-align: center;
+/* 🎨 CSS Variables (Design System) */
+:root {
+  --bg-main: #121212;
+  --bg-card: #181818;
+  --bg-hover: #282828;
+  --primary: #1db954;
+  --primary-hover: #1ed760;
+  --text-main: #ffffff;
+  --text-secondary: #aaaaaa;
+  --radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 🌍 Global Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 📦 App Container */
+.app {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 🎵 Player */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: var(--radius);
+}
+
+.player.empty {
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.player-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.player-info {
+  text-align: left;
+}
+
+.song-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.song-artist {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* 🎮 Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.control-btn {
+  background: var(--primary);
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary-hover);
+}
+
+.play-btn {
+  font-size: 22px;
+  padding: 15px;
+}
+
+/* 📃 Playlist */
+.playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+.playlist-item:hover {
+  background: var(--bg-hover);
+}
+
+.playlist-item.active {
+  background: var(--primary);
+  color: black;
+}
+
+.song-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.song-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.playing-indicator {
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.empty-playlist {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  position: relative;
+  margin: 20px 0;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 35px 10px 10px;
+  border-radius: var(--radius);
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 500px) {
+  .player {
+    flex-direction: column;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .player-image img {
+    width: 100px;
+    height: 100px;
   }
 }
